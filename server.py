@@ -4,7 +4,7 @@ import random
 
 MAX_PACKET = 1024
 time = datetime.datetime.now()
-SERVER_NAME = "Ori Server"
+SERVER_NAME = "Gilad's Server"
 QUEUE_LEN = 1
 
 mode = None
