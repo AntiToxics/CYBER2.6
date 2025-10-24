@@ -11,8 +11,7 @@ while(option != "EXIT"):
     except socket.error as err:
         print('received socket error ' + str(err))
     finally:
-        print("Hello Welcome To Our Server Please Choose One Of The Four Options You Can Choose")
-        print("You Have TIME / NAME / RAND / EXIT")
+        print("Hello Welcome,you have four options: TIME / NAME / RAND / EXIT")
         option = input("Please Choose One Of The Options: ").upper()
         if(option):
             my_socket.send(option.encode())
