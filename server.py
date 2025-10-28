@@ -4,7 +4,7 @@ import random
 
 MAX_PACKET = 1024
 time = datetime.datetime.now()
-SERVER_NAME = "Ori Server"
+SERVER_NAME = "Gilad's Server"
 QUEUE_LEN = 1
 
 
@@ -16,19 +16,19 @@ while True:
         client_socket, client_address = my_socket.accept()
         try :
             request = client_socket.recv(MAX_PACKET).decode()
-            print('server received ' + request)
+            print('server received: ' + request)
         except socket.error as err:
             print('received socket error on client socket' + str(err))
         finally:
             mode = client_socket.recv(MAX_PACKET).decode()
             if(mode == "TIME"):
-                client_socket.send(f"Current date and time: {time}".encode())
+                client_socket.send(f"The current date and time is: {time}".encode())
             elif(mode == "NAME"):
-                client_socket.send(('The Server Name Is: ' + SERVER_NAME).encode())
+                client_socket.send(('The name of the server is: ' + SERVER_NAME).encode())
             elif(mode == "RAND"):
                 client_socket.send(('The Random Number Is: ' + str(random.randint(1,10))).encode())
             else:
-                print("The Client Didn't Want Nothing")
+                print("Invalid argument; the client didnt choose any of the options")
             client_socket.close()
     except socket.error as err:
         print('received socket error on server socket' + str(err))
