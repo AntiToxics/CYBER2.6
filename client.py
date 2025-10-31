@@ -64,5 +64,5 @@ if __name__ == '__main__':
     assert isinputvalid("TIME") == True , "Assert Test Failed"
     assert isinputvalid("BLABLA") == False , "Assert Test Failed"
     assert isinputvalid("EXIT") == "EXIT" , "Assert Test Failed"
-
+    logging.info("All assert test passed successfuly")
     main()
