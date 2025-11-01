@@ -40,7 +40,7 @@ def main():
             client_socket, client_address = my_socket.accept()
             try :
                 request = client_socket.recv(MAX_PACKET).decode()
-                print('server received ' + request)
+                print('server received: ' + request)
             except socket.error as err:
                 print('received socket error on client socket' + str(err))
             finally:
@@ -49,16 +49,16 @@ def main():
                     logging.info("Client Requested Server Time")
                     client_socket.send(f"Current date and time: {Time()}".encode())
                 elif(mode == "NAME"):
-                    logging.info("Client Requested Server Name")
+                    logging.info("Client Requested the Server Name")
                     client_socket.send(('The Server Name Is: ' + Name()).encode())
                 elif(mode == "RAND"):
-                    logging.info("Client Requested A Random Number From 1-10")
+                    logging.info("Client Requested A Random Number between 1-10")
                     client_socket.send(('The Random Number Is: ' + RandomNum()).encode())
                 elif(mode == "EXIT"):
-                    logging.info("The Client Disconnected")
+                    logging.info("The Client Disconnected From The Server")
                 else:
-                    logging.warning("The Client Didn't Want Nothing")
-                    print("Warning Check server.log File")
+                    logging.warning("The Client Didn't choose TIME/NAME/RAND/EXIT")
+                    print("Warning! ,Check server.log File")
                 client_socket.close()
         except socket.error as err:
             print('received socket error on server socket' + str(err))
