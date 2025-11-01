@@ -1,8 +1,29 @@
+"""
+Author: Gilad Elran
+Program name: TCP Client
+Description:
+    This program connects to a TCP server and sends 4-character commands.
+    Supported commands:
+        • TIME - requests the current time from the server.
+        • NAME - requests the server's name.
+        • RAND - requests a random number between 1 and 10.
+        • EXIT - closes the connection with the server.
+Date: 1/11/2025
+"""
+
+
+
 import socket
 import logging
 
 MAX_PACKET = 1024
 def main():
+    """
+    Main client function.
+    Connects to the server and allows the user to send commands interactively.
+    The commends are: TIME/RAND/NAME/EXIT.
+    """
+    
     option = None
     while(option != "EXIT"):
         my_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -45,6 +66,10 @@ def main():
             my_socket.close()
 
 def isinputvalid(option):
+    """
+    Checks if the input of the client is valid or not,
+    returns True ->(bool) if its valid , returns False -> (bool) if its not valid, returns "EXIT" -> (str) if the input was "EXIT".
+    """
     if(option == "TIME" or option == "NAME" or option == "RAND"):
         return True
     elif(option == "EXIT"):
