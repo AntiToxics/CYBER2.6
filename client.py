@@ -1,6 +1,6 @@
 """
 Author: Gilad Elran
-Program name: TCP Client
+Program name: client.py
 Description:
     This program connects to a TCP server and sends 4-character commands.
     Supported commands:
