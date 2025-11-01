@@ -35,8 +35,8 @@ def main():
             logging.error("Could Not Connect To The Server")
         finally:
             logging.info("Successfully Connected To The Server")
-            print("Hello Welcome To Our Server Please Choose One Of The Four Options You Can Choose")
-            print("You Have TIME / NAME / RAND / EXIT")
+            print(" Welcome To Our Server Please, Choose One Of The Four Options You Can Choose")
+            print("You Have: TIME / NAME / RAND / EXIT")
             option = input("Please Choose One Of The Options: ").upper()
             opt_check = isinputvalid(option)
             if(opt_check == True):
@@ -55,7 +55,7 @@ def main():
                     if(option == ""):
                         while(not option):
                             logging.warning("The Client Didn't Write Anything")
-                            print("Please Write Something")
+                            print("Please Write Something from the four options: TIME/NAME/RAND/EXIT")
                             option = input("Please Choose One Of The Options: ").upper()
                             opt_check = isinputvalid(option)
 
@@ -87,7 +87,7 @@ if __name__ == '__main__':
 
 
     assert isinputvalid("TIME") == True , "Assert Test Failed"
-    assert isinputvalid("BLABLA") == False , "Assert Test Failed"
+    assert isinputvalid("Banana") == False , "Assert Test Failed"
     assert isinputvalid("EXIT") == "EXIT" , "Assert Test Failed"
     logging.info("All assert test passed successfuly")
     main()
