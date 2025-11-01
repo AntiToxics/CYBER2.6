@@ -65,6 +65,7 @@ def main():
         finally:
             my_socket.close()
 
+
 def Time():
     """
     Function that return current date and time.
@@ -72,17 +73,20 @@ def Time():
     time = datetime.datetime.now()
     return time
 
+
 def Name():
     """
     Funcction that returns the name of the server.
     """
     return SERVER_NAME
 
+
 def RandomNum():
     """
     Funtion that gives you a random number between 1 to 10. 
     """
     return str(random.randint(1,10))
+
 
 
 if __name__ == '__main__':
