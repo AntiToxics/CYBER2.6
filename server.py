@@ -1,3 +1,23 @@
+"""
+Author: Gilad Elran
+Program name: server.py
+Description:
+    This program implements a TCP server that listens for client requests
+    and responds based on a 4-character command.
+
+    Supported commands:
+        • TIME - returns the current server time.
+        • NAME - returns the server name.
+        • RAND - returns a random number between 1 and 10.
+        • EXIT - disconnects the client.
+    The server runs continuously and handles one client at a time.
+    When a client sends the EXIT command, the server disconnects from the client and is ready to connecct with another client.
+    
+Date: 1/11/2025
+"""
+
+
+
 import socket
 import datetime
 import random
@@ -8,6 +28,10 @@ SERVER_NAME = "Gilad's Server"
 QUEUE_LEN = 1
 
 def main():
+    """
+    Main function to initialize and run the TCP server.
+    Waits for incoming client connections and handles each one.
+    """
     while True:
         my_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         try:
@@ -42,13 +66,22 @@ def main():
             my_socket.close()
 
 def Time():
+    """
+    Function that return current date and time.
+    """
     time = datetime.datetime.now()
     return time
 
 def Name():
+    """
+    Funcction that returns the name of the server.
+    """
     return SERVER_NAME
 
 def RandomNum():
+    """
+    Funtion that gives you a random number between 1 to 10. 
+    """
     return str(random.randint(1,10))
 
 
