@@ -65,6 +65,7 @@ def main():
             print(response)
             my_socket.close()
 
+
 def isinputvalid(option):
     """
     Checks if the input of the client is valid or not,
@@ -76,6 +77,7 @@ def isinputvalid(option):
         return "EXIT"
     else:
         return False
+
 
 if __name__ == '__main__':
     logging.basicConfig(
